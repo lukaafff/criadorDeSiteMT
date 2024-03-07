@@ -17,6 +17,7 @@ class ExternalDataController extends Controller
         $userData = DB::connection('main_database')
             ->table('users')
             ->select('id', 'name', 'level')
+            ->where('level', '>=', 3)
             ->get();
 
         return view('info', [
