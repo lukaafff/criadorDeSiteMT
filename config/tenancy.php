@@ -19,6 +19,13 @@ return [
     'central_domains' => [
         '127.0.0.1',
         'localhost', //domio principal aqui
+        'broker.cr', //[2]
+        'consultoradeimoveis.com', //[3]
+        'consultoraimobiliaria.com.br', //[4]
+        'corretoraaltopadrao.com', //[5]
+        'corretorimobiliario.com', //[6]
+        'consultor.imb.br', //[7]
+        'corretoraltopadrao.com', //[8]
     ],
 
     /**

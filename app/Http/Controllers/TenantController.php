@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -20,14 +21,16 @@ class TenantController extends Controller
             $assinatura = $this->buscarAssinatura($userId);
 
             if ($this->podeCriarTenant($nivelUsuario, $assinatura)) {
-                $tenant = new Tenant();
-                $tenant->tenant_id = $tenantId;
-                $tenant->domain = $domain;
+                $tenant = Tenant::create([
+                    'tenant_id' => $tenantId,
+                    'domain' => $domain,
+                    'user_ig' => $userId,
+                ]);
 
-                $tenant->user_ig = $userId;
-                $tenant->save();
+                $tenant->domains()->create([
+                    'domain' => $domain,
+                ]);
 
-                return redirect()->route('tenant.home');
             } else {
                 return view('mostrar-dados', ['user_id' => $userId, 'message' => 'Usuário não atende aos requisitos para criar inquilino e domínio.']);
             }

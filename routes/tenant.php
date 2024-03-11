@@ -29,7 +29,7 @@ Route::middleware([
     });
 
     Route::get('/home', function () {
-        return 'Esta é a página home para o inquilino ' . tenant('tenant_id');
+        return 'Esta é a página home para o inquilino || ' . tenant('tenant_id') . ' || dominio:  ' . tenant('domain');
     })->name('tenant.home');
 
 });
