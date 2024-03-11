@@ -19,11 +19,17 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 */
 
 Route::middleware([
+
     'web',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', function () {
-        return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
+        return 'Esta é a aplicação multi-inquilino. O ID do inquilino atual é ' . tenant('id');
     });
+
+    Route::get('/home', function () {
+        return 'Esta é a página home para o inquilino ' . tenant('tenant_id');
+    })->name('tenant.home');
+
 });
