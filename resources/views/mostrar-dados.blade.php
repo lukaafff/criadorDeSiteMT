@@ -12,15 +12,20 @@
     @isset($nivelUsuario)
         <p>Nível do Usuário: {{ $nivelUsuario }}</p>
         @if ($nivelUsuario >= 8)
-            <p>O usuário tem nível suficiente para criar domínio.</p>
+            @isset($assinatura)
+                <p>Informações da Assinatura:</p>
+                <p>Status: {{ $assinatura->status == 1 ? 'Ativa' : 'Inativa' }}</p>
+                @if ($assinatura->status == 1)
+                    <p>O usuário tem nível suficiente e a assinatura está ativa para criar domínio.</p>
+                @else
+                    <p>O usuário tem nível suficiente, mas a assinatura não está ativa para criar domínio.</p>
+                @endif
+            @else
+                <p>O usuário tem nível suficiente, mas não foi encontrada nenhuma informação de assinatura.</p>
+            @endisset
         @else
             <p>O usuário não atende aos requisitos para criar domínio.</p>
         @endif
-    @endisset
-
-    @isset($assinatura)
-        <p>Informações da Assinatura:</p>
-        <p>Status: {{ $assinatura->status == 1 ? 'Ativa' : 'Inativa' }}</p>
     @endisset
 
     @isset($message)
