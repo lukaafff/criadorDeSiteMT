@@ -17,8 +17,8 @@ return [
      * Only relevant if you're using the domain or subdomain identification middleware.
      */
     'central_domains' => [
-        '127.0.0.1',
-        'localhost', //domio principal aqui
+        '127.0.0.1', //[0]
+        'localhost', //[1]
         'broker.cr', //[2]
         'consultoradeimoveis.com', //[3]
         'consultoraimobiliaria.com.br', //[4]

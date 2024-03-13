@@ -32,10 +32,10 @@ class TenantController extends Controller
                 ]);
 
             } else {
-                return view('mostrar-dados', ['user_id' => $userId, 'message' => 'Usuário não atende aos requisitos para criar inquilino e domínio.']);
+                return ['user_id' => $userId, 'message' => 'Usuário não atende aos requisitos para criar inquilino e domínio.'];
             }
         } else {
-            return view('mostrar-dados', ['user_id' => $userId, 'message' => 'Usuário não encontrado.']);
+            return ['user_id' => $userId, 'message' => 'Usuário não encontrado.'];
         }
     }
 
