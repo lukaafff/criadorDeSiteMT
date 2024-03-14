@@ -1,0 +1,32 @@
+option{
+  font-weight: 300;
+}
+
+.btnEnviar {
+  margin-top: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerInputsMargin {
+  margin-bottom: 20px !important;
+}
+
+.colorBlack {
+  color: #222;
+}
+
+.notRequired::after {
+  content: "";
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .containerInputs {
+    flex-direction: column;
+  }
+  .inputBox {
+    max-width: 100%;
+  }
+}
